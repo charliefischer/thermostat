@@ -1,5 +1,10 @@
 $(document).ready(() => {
   let thermostat = new Thermostat();
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', (data) => {
+    $('#current-temperature').text(data.main.temp);
+  })
+
   updateTemperature = () => {
     $('#temperature').text(thermostat.currentTemperature);
     $('#temperature').attr('class', thermostat.energyUsage());
@@ -16,6 +21,7 @@ $(document).ready(() => {
     thermostat.decreaseTemperature();
     updateTemperature();
   })
+
 
   $('#powerSaveButton').click(() => {
     thermostat.powerSavingSwitch();

@@ -49,20 +49,19 @@ class Thermostat {
   }
 
   powerSavingSwitch() {
-    if (this.powerSavingMode === false){
-      this.switchOnPowerSaving()
-    } else {
-      this.switchOffPowerSaving()
+    this.powerSavingMode = !this.powerSavingMode;
+    if (this.isPowerSaving() && this._currentTemperature > 25) {
+      this._currentTemperature = 25;
     }
   }
 
-  switchOffPowerSaving(){
-    return this.powerSavingMode = false
-  }
-
-  switchOnPowerSaving(){
-    return this.powerSavingMode = true
-  }
+  // switchOffPowerSaving(){
+  //   return this.powerSavingMode = false;
+  // }
+  //
+  // switchOnPowerSaving(){
+  //   return this.powerSavingMode = true;
+  // }
 
   energyUsage() {
     if (this.currentTemperature < 18) {

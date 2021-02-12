@@ -25,12 +25,13 @@
     <div class="reset">
       <button type="button" id="reset">Reset</button>
     </div>
-    <div class="energyUsage">
-      Energy Usage status colour
-    </div>
 
     <div>
-      <h1> Current temperature in London <span id="current-temperature"></span> ˚C</h1>
+      <h1> Current temperature in <span id='display-city'>London</span>: <span id="current-temperature"></span> ˚C</h1>
+      <form id="select-city">
+        <input id="current-city" type="text" placeholder="Enter a city"></input>
+        <input type="submit"></input>
+      </form>
     </div>
 
   </section>
@@ -38,5 +39,5 @@
 <script src="src/jQuery.js"></script>
   <script src="src/Thermostat.js"></script>
   <script src="src/ThermostatJQuery.js"></script>
-
+  <script src="config.js"></script>
 </body>

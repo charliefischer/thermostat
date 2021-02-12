@@ -34,18 +34,24 @@ $(document).ready(() => {
     updateTemperature();
   })
 
+  displayWeather = city => {
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+    var token = '&appid=' + API_KEY;
+    var units = '&units=metric';
+    $.get(url + token + units, function(data) {
+      $('#current-temperature').text(data.main.temp);
+      $('#display-city').text(city);
+    })
+  }
 
+  displayWeather('London');
 
+  $('#select-city').submit( event => {
+    event.preventDefault();
+    var city = $('#current-city').val();
+    displayWeather(city);
+  })
 
-
-
-
-
-
-
-
-
-
-
+  console.log(process.env);
 
 })
